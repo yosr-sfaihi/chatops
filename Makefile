@@ -23,7 +23,7 @@ help:
 	@echo "  make test             Run backend and frontend CI checks"
 
 doctor:
-	@for command_name in uv pnpm docker minikube kubectl localstack curl; do \
+	@for command_name in uv pnpm docker minikube kubectl lstk curl; do \
 		command -v "$$command_name" >/dev/null || { \
 			echo "Missing required command: $$command_name" >&2; \
 			exit 1; \

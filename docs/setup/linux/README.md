@@ -13,10 +13,10 @@ Install these commands before starting:
 - Minikube and kubectl;
 - Python 3.13 and uv;
 - Node.js 22 and pnpm;
-- LocalStack CLI;
+- LocalStack `lstk` CLI;
 - curl.
 
-Docker must be running. The LocalStack CLI may require you to configure a
+Docker must be running. The `lstk` CLI may require you to configure a
 LocalStack authentication token, depending on your installation and plan.
 
 ## Clone the repository
@@ -216,7 +216,7 @@ Stop LangGraph, the frontend, Headlamp port-forward, and optional FastAPI with
 `Ctrl+C` in their terminals. Stop the detached infrastructure when desired:
 
 ```bash
-localstack stop
+lstk stop
 minikube stop
 ```
 
@@ -257,8 +257,8 @@ Use `localhost` for both the frontend and Headlamp instead of mixing
 Inspect its status and logs:
 
 ```bash
-localstack status
-localstack logs
+lstk status
+lstk logs
 ```
 
 Confirm Docker is running and any required LocalStack authentication token is

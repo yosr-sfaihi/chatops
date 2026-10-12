@@ -8,7 +8,7 @@ STARTUP_TIMEOUT_SECONDS="${LOCALSTACK_STARTUP_TIMEOUT_SECONDS:-60}"
 LOCALSTACK_AWS_REGION="${LOCALSTACK_AWS_REGION:-us-east-1}"
 REQUIRED_BUCKETS=("chatops-logs" "chatops-assets")
 
-for command_name in localstack docker curl uv; do
+for command_name in lstk docker curl uv; do
   command -v "${command_name}" >/dev/null || {
     echo "Missing required command: ${command_name}" >&2
     exit 1
@@ -22,7 +22,7 @@ docker info >/dev/null 2>&1 || {
 
 if ! curl --fail --silent "${LOCALSTACK_HEALTH_URL}" >/dev/null 2>&1; then
   echo "Starting LocalStack..."
-  env -u DEBUG localstack start --detached
+  env -u DEBUG lstk start
 fi
 
 deadline=$((SECONDS + STARTUP_TIMEOUT_SECONDS))
